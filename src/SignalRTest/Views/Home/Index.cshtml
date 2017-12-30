@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Real time rep tracker";  
+}
+
+@model SignalRTest.HomeModel
+
+<title>@ViewBag.Title</title>
+
+<h2 style="background-color: Yellow;color: Blue; text-align: center; font-style: oblique">Real time rep tracker</h2>
+<fieldset>
+    <legend style="font-family: Arial Black; color: blue; font-size: large;">Daz</legend>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <div id="googleMap" style="height:400px;width:100%;"></div>
+    <script>
+
+        function myMap() {
+            var myCenter = new google.maps.LatLng(20.296100, 85.824500);
+            var mapProp = { center: myCenter, zoom: 12, scrollwheel: false, draggable: true, mapTypeId: google.maps.MapTypeId.ROADMAP };
+            window.map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            var marker = new google.maps.Marker({ position: myCenter });
+            marker.setMap(map);             
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=@Model.GoogleMapsApiKey&callback=myMap"></script>
+    <script type="text/javascript" src="nodemodules/@@aspnet/signalr-client/dist/browser/signalr-client-1.0.0-alpha2-final.js"></script>
+
+    <script type="text/javascript">
+        var transport = signalR.TransportType.WebSockets;
+        var connection = new signalR.HubConnection(`http://${document.location.host}/locationtracker`, { transport: transport });
+       // var messageInput = document.getElementById('message');
+       // var name = prompt('Enter your name:', '');
+       // var button = document.getElementById("sendMessage");
+        var markers = {};
+        connection.on('broadcastLocation', (repName, latitude, longitude) => {
+                       
+
+            var marker = null;
+            if (markers[repName] === undefined) {               
+                marker = new google.maps.Marker({ label: repName });
+                markers[repName] = marker;
+            }
+
+            var point = new google.maps.LatLng(latitude, longitude);
+            marker = markers[repName];
+            marker.setPosition(point);
+
+            var map = window.map;
+            if (map !== undefined) {
+                // var point = new google.maps.LatLng(latitude, longitude);
+                // var marker = new google.maps.Marker({ position: point, label: repName });
+                marker.setMap(map);
+            }
+           
+
+        });
+        //button.addEventListener("click", event => {
+        //    connection.invoke('send', name, messageInput.value);
+        //    messageInput.value = '';
+        //    messageInput.focus();
+        //});
+        connection.start();
+    </script>
+
+</fieldset>
+<footer>
+    <p style="background-color: Yellow; font-weight: bold; color:blue; text-align: center; font-style: oblique">© @DateTime.Now.ToLocalTime()</p> @*Add Date Time*@
+</footer>  

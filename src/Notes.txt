@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/28535703/best-way-to-get-user-gps-location-in-background-in-android

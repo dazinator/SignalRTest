@@ -20,6 +20,7 @@ namespace SignalRTest
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseUrls("http://*:5000;http://localhost:5001;http://169.254.80.80:5002")
                 .Build();
     }
 }

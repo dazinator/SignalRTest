@@ -4,3 +4,10 @@
 
 /src/bin/Debug/netcoreapp2.0
 /src/obj
+/.vs/SignalRTest/v15/.suo
+/.vs
+/src/.vs
+/src/App1/bin/Debug
+/src/App1/obj
+/src/SignalRTest/bin/Debug/netcoreapp2.0
+/src/SignalRTest/obj

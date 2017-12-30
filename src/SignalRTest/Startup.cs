@@ -1,27 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.IO;
 using Dazinator.AspNet.Extensions.FileProviders;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 
 namespace SignalRTest
 {
-
-    public class ChatHub : Hub
-    {
-        public void Send(string name, string message)
-        {
-            // Call the broadcastMessage method to update clients.
-            Clients.All.InvokeAsync("broadcastMessage", name, message);
-        }
-    }
 
     public class Startup
     {
@@ -30,6 +16,7 @@ namespace SignalRTest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSignalR();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,7 +36,10 @@ namespace SignalRTest
             app.UseSignalR(routes =>
             {
                 routes.MapHub<ChatHub>("chat");
+                routes.MapHub<LocationTrackerHub>("locationtracker");
             });
+
+            app.UseMvc();
 
             app.Run(async (context) =>
             {

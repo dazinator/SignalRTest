@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRTest", "SignalRTest\SignalRTest.csproj", "{7D943A3B-E071-496E-99A9-B0E57FEB5E41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1", "App1\App1.csproj", "{63AC8287-A299-4BE3-9CD5-5FC95C1B1812}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{658CA187-3B95-4C85-9CE0-DFF5BE2DE05F}"
+	ProjectSection(SolutionItems) = preProject
+		Notes.txt = Notes.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D943A3B-E071-496E-99A9-B0E57FEB5E41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D943A3B-E071-496E-99A9-B0E57FEB5E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D943A3B-E071-496E-99A9-B0E57FEB5E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D943A3B-E071-496E-99A9-B0E57FEB5E41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63AC8287-A299-4BE3-9CD5-5FC95C1B1812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63AC8287-A299-4BE3-9CD5-5FC95C1B1812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63AC8287-A299-4BE3-9CD5-5FC95C1B1812}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{63AC8287-A299-4BE3-9CD5-5FC95C1B1812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63AC8287-A299-4BE3-9CD5-5FC95C1B1812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63AC8287-A299-4BE3-9CD5-5FC95C1B1812}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05F6B543-F59D-4B18-B77B-F408B406A5E0}
+	EndGlobalSection
+EndGlobal
