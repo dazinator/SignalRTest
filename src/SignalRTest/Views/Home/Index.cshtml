@@ -19,11 +19,11 @@
     <script>
 
         function myMap() {
-            var myCenter = new google.maps.LatLng(20.296100, 85.824500);
-            var mapProp = { center: myCenter, zoom: 12, scrollwheel: false, draggable: true, mapTypeId: google.maps.MapTypeId.ROADMAP };
+            var myCenter = new google.maps.LatLng(51.50, 3.43);
+            var mapProp = { center: myCenter, zoom: 4, scrollwheel: false, draggable: true, mapTypeId: google.maps.MapTypeId.ROADMAP };
             window.map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-            var marker = new google.maps.Marker({ position: myCenter });
-            marker.setMap(map);             
+            //var marker = new google.maps.Marker({ position: myCenter });
+            //marker.setMap(map);             
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=@Model.GoogleMapsApiKey&callback=myMap"></script>

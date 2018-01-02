@@ -41,7 +41,7 @@ namespace App1
         private void StartListening(IGeolocator geolocator)
         {
             geolocator.PositionChanged += Current_PositionChanged;
-            geolocator.StartListeningAsync(new TimeSpan(0, 1, 0), 0, false, new ListenerSettings() { AllowBackgroundUpdates = true });
+            geolocator.StartListeningAsync(new TimeSpan(0, 0, 10), 0, false, new ListenerSettings() { AllowBackgroundUpdates = true });
         }
 
         private void Current_PositionChanged(object sender, PositionEventArgs e)
